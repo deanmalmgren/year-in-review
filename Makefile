@@ -22,12 +22,9 @@ all: twitter \
 clean: 
 	rm -rf data/
 
-# generic rule for computing .dat files from .py files
-%.dat: %.py
-	python $< > $@
-
 twitter: data/twitter.dat
 data/twitter.dat: bin/twitter.py
+	python $< > $@
 
 gmail:
 

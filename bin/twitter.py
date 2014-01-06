@@ -14,6 +14,12 @@ import utils
 
 def authenticate(config_parser):
 
+    if not config_parser.has_section('twitter'):
+        sys.stderr.write(utils.yellow(
+            "twitter is not configured; skipping...\n"
+        ))
+        exit(0)
+
     # The consumer keys can be found on your application's Details
     # page located at https://dev.twitter.com/apps (under "OAuth settings")
     consumer_key = config_parser.get('twitter', 'consumer_key')
@@ -61,3 +67,7 @@ for status in tweepy.Cursor(api.user_timeline).items():
     tweet_count += 1
     retweet_count += status.retweet_count
     favorites_count += status.favorite_count
+
+sys.stderr.write(utils.green(
+    "twitter complete!\n"
+))
