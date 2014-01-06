@@ -35,5 +35,6 @@ nosetests.xml
 .project
 .pydevproject
 
-# local server configuration
+# provisioned and user-supplied configuration files
 server_config.ini
+year-in-review.ini
