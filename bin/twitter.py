@@ -4,6 +4,7 @@ API using the credentials specified in year-in-review.ini.
 """
 # standard library
 import os
+import sys
 
 # third party
 import tweepy
@@ -34,4 +35,29 @@ def authenticate(config_parser):
 # If the authentication was successful, you should
 # see the name of the account print out
 api = authenticate(utils.get_config_parser())
-print api.me().name
+
+# iterate over the user's timeline and count the number of posts per day
+previous_date = None
+tweet_count = 0
+retweet_count = 0
+favorites_count = 0
+for status in tweepy.Cursor(api.user_timeline).items():
+    date = status.created_at.date()
+
+    # this is the first time through the loop
+    if previous_date is None:
+        previous_date = date
+
+    # done collecting data on previous_date. print 'er out and reset
+    # the counters
+    if date != previous_date:
+        print previous_date, tweet_count, retweet_count, favorites_count
+        sys.stdout.flush()
+        previous_date = date
+        tweet_count = 0
+        retweet_count = 0
+        favorites_count = 0
+
+    tweet_count += 1
+    retweet_count += status.retweet_count
+    favorites_count += status.favorite_count

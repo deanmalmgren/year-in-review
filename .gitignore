@@ -37,3 +37,6 @@ nosetests.xml
 # provisioned and user-supplied configuration files
 server_config.ini
 year-in-review.ini
+
+# ignore the data that is generated from the scripts
+data/

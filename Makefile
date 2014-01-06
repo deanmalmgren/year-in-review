@@ -22,8 +22,10 @@ all: twitter \
 clean: 
 	rm -rf data/
 
-twitter: bin/twitter.py
-	python $<
+twitter: data/twitter.dat
+
+data/twitter.dat: bin/twitter.py
+	python $< > $@
 
 gmail:
 
