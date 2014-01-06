@@ -19,4 +19,4 @@ Getting started
 
 * SSH to the virtual machine with `vagrant ssh year-in-review` and run
   `make` from the `/vagrant` directory. This will run all of the
-  analyses that are set up in your configuration.
+  analyses that are set up in your `year-in-review.ini` configuration file.
