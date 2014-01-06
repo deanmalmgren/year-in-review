@@ -109,4 +109,6 @@ def default(do_rsync=True):
     # packages have necessary dependencies
     packages()
 
+    # set up anything that needs to be done prior to running the
+    # analysis via make
     setup_analysis()

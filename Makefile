@@ -8,7 +8,7 @@
 #  $? what does the fox stand for? http://youtu.be/jofNR_WkoCE
 
 # set some global variables here
-DATA=data
+
 
 # by default run all of these commands
 all: twitter \
@@ -20,9 +20,10 @@ all: twitter \
 
 # remove all of the results
 clean: 
-	rm -rf $(DATA)/
+	rm -rf data/
 
-twitter:
+twitter: bin/twitter.py
+	python $<
 
 gmail:
 
