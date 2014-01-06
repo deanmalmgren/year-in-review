@@ -59,6 +59,14 @@ def debian_packages():
 
 @task
 @decorators.needs_environment
+def packages():
+    """install all packages"""
+    debian_packages()
+    python_packages()
+
+
+@task
+@decorators.needs_environment
 def setup_analysis():
     """prepare analysis environment"""
     with vagrant_settings(env.host_string):
@@ -81,6 +89,7 @@ def setup_analysis():
         data_dir = "/vagrant/data"
         fabtools.require.files.directory(data_dir)
 
+
 @task(default=True)
 @decorators.needs_environment
 def default(do_rsync=True):
@@ -98,7 +107,6 @@ def default(do_rsync=True):
 
     # install debian packages first to make sure any compiling python
     # packages have necessary dependencies
-    debian_packages()
-    python_packages()
+    packages()
 
     setup_analysis()

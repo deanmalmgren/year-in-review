@@ -11,9 +11,25 @@
 DATA=data
 
 # by default run all of these commands
-all: 
+all: twitter \
+	gmail \
+	gcal \
+	github \
+	stackoverflow \
+	mercurial
 
 # remove all of the results
 clean: 
 	rm -rf $(DATA)/
 
+twitter:
+
+gmail:
+
+gcal:
+
+github:
+
+stackoverflow:
+
+mercurial:
