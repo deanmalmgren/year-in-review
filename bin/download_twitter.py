@@ -2,6 +2,7 @@
 """Use this script to download a timeseries of tweets from the Twitter
 API using the credentials specified in year-in-review.ini.
 """
+
 # standard library
 import os
 import sys

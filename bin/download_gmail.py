@@ -14,7 +14,7 @@ import utils
 config_parser = utils.get_config_parser()
 imap_server = imaplib.IMAP4_SSL("imap.gmail.com",993)
 imap_server.login(
-    config_parser.get('google', 'username'),
+    config_parser.get('google', 'email'),
     config_parser.get('google', 'password'),
 )
 print 'hi'

@@ -34,7 +34,7 @@ access_token_secret=xxxx
 
 # authentication information for google
 [google]
-username=xxxx
+email=xxxx
 password=xxxx
 
 # credentials for authenticating to github

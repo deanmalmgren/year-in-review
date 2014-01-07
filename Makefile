@@ -23,11 +23,11 @@ clean:
 	rm -rf data/
 
 twitter: data/twitter.dat
-data/twitter.dat: bin/twitter.py
+data/twitter.dat: bin/download_twitter.py
 	python $< > $@
 
 gmail: data/gmail.dat
-data/gmail.dat: bin/gmail.py
+data/gmail.dat: bin/download_gmail.py
 	python $<
 
 gcal:
