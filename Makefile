@@ -36,6 +36,8 @@ github: data/github.dat
 data/github.dat: bin/download_github.py
 	python $< > $@
 
-stackoverflow:
+stackoverflow: data/stackoverflow.dat
+data/stackoverflow.dat: bin/download_stackoverflow.py
+	python $< > $@
 
 mercurial:
