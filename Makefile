@@ -26,7 +26,9 @@ twitter: data/twitter.dat
 data/twitter.dat: bin/twitter.py
 	python $< > $@
 
-gmail:
+gmail: data/gmail.dat
+data/gmail.dat: bin/gmail.py
+	python $<
 
 gcal:
 

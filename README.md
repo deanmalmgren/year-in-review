@@ -32,4 +32,9 @@ consumer_secret=xxxx
 access_token=xxxx
 access_token_secret=xxxx
 
+# authentication information for google
+[google]
+username=xxxx
+password=xxxx
+
 ```
