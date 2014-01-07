@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 """This script is used to download all events from the stackoverflow API
 http://developer.github.com/v3/activity/events/
+
+TODO: extend to other stackexchange sites
 """
 
 # standard library
