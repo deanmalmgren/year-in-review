@@ -41,4 +41,10 @@ password=xxxx
 [github]
 username=xxxx
 password=xxxx
+
+# credentials for stackoverflow. You can get this by visiting your
+# user page. For example, http://stackoverflow.com/users/564709/dino has
+# user_id=564709
+[stackoverflow]
+user_id=xxxx
 ```
