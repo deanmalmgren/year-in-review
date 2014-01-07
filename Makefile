@@ -32,7 +32,9 @@ data/gmail.dat: bin/gmail.py
 
 gcal:
 
-github:
+github: data/github.dat
+data/github.dat: bin/download_github.py
+	python $< > $@
 
 stackoverflow:
 

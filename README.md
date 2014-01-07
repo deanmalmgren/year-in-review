@@ -37,4 +37,8 @@ access_token_secret=xxxx
 username=xxxx
 password=xxxx
 
+# credentials for authenticating to github
+[github]
+username=xxxx
+password=xxxx
 ```
