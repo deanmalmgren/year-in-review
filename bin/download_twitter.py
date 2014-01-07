@@ -43,31 +43,10 @@ def authenticate(config_parser):
 # see the name of the account print out
 api = authenticate(utils.get_config_parser())
 
-# iterate over the user's timeline and count the number of posts per day
-previous_date = None
-tweet_count = 0
-retweet_count = 0
-favorites_count = 0
+# print out the tweet timestamps and some basic statistics about those
+# tweets
 for status in tweepy.Cursor(api.user_timeline).items():
-    date = status.created_at.date()
-
-    # this is the first time through the loop
-    if previous_date is None:
-        previous_date = date
-
-    # done collecting data on previous_date. print 'er out and reset
-    # the counters
-    if date != previous_date:
-        print previous_date, tweet_count, retweet_count, favorites_count
-        sys.stdout.flush()
-        previous_date = date
-        tweet_count = 0
-        retweet_count = 0
-        favorites_count = 0
-
-    tweet_count += 1
-    retweet_count += status.retweet_count
-    favorites_count += status.favorite_count
+    print status.created_at, status.retweet_count, status.favorite_count
 
 sys.stderr.write(utils.green(
     "twitter complete!\n"
