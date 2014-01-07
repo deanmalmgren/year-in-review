@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 """This script is used to download all events from the github API
 http://developer.github.com/v3/activity/events/
-
-TODO: how to download more than 300 most recent events?
 """
 
 # standard library
