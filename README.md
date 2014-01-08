@@ -70,6 +70,15 @@ password=xxxx
 # user_id=564709
 [stackoverflow]
 user_id=xxxx
+
+# obtain timeseries of private mercurial repositories on arbitrary
+# servers specified in ssh_config_path by specifying an email address
+# and comma-separated list of
+# host:/path/to/parent/directory/of/repository pairs.
+[mercurial]
+ssh_config_path=/path/to/.ssh/config
+email=xxxx
+host_directories=machine:/directory/containing/hg/repos,machine2:/directory/containing/hg/repos
 ```
 
 Contributing

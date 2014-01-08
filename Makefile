@@ -40,4 +40,6 @@ stackoverflow: data/stackoverflow.dat
 data/stackoverflow.dat: bin/download_stackoverflow.py
 	python $< > $@
 
-mercurial:
+mercurial: data/mercurial.dat
+data/mercurial.dat: bin/download_mercurial.py
+	python $< > $@

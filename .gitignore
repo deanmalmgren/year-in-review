@@ -38,5 +38,8 @@ nosetests.xml
 server_config.ini
 year-in-review.ini
 
+# ignore the .ssh/ directory for sshing to other machines
+.ssh/
+
 # ignore the data that is generated from the scripts
 data/

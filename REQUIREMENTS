@@ -2,3 +2,4 @@ tweepy
 google-api-python-client
 PyGithub
 -e git+https://github.com/lucjon/Py-StackExchange.git@updating-2.0#egg=stackexchange
+Fabric
