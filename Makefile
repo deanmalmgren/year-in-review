@@ -22,24 +22,24 @@ all: twitter \
 clean: 
 	rm -rf data/
 
-twitter: data/twitter.dat
-data/twitter.dat: bin/download_twitter.py
+twitter: data/twitter.csv
+data/twitter.csv: bin/download_twitter.py
 	python $< > $@
 
-gmail: data/gmail.dat
-data/gmail.dat: bin/download_gmail.py
+gmail: data/gmail.csv
+data/gmail.csv: bin/download_gmail.py
 	python $<
 
 gcal:
 
-github: data/github.dat
-data/github.dat: bin/download_github.py
+github: data/github.csv
+data/github.csv: bin/download_github.py
 	python $< > $@
 
-stackoverflow: data/stackoverflow.dat
-data/stackoverflow.dat: bin/download_stackoverflow.py
+stackoverflow: data/stackoverflow.csv
+data/stackoverflow.csv: bin/download_stackoverflow.py
 	python $< > $@
 
-mercurial: data/mercurial.dat
-data/mercurial.dat: bin/download_mercurial.py
+mercurial: data/mercurial.csv
+data/mercurial.csv: bin/download_mercurial.py
 	python $< > $@
