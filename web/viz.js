@@ -35,6 +35,12 @@ function add_timeseries(data_type) {
 	    d.datetime = parseDate(d.datetime);
 	});
 
+	// omit data that is out of bounds
+	var bounds = x.domain();
+	data = data.filter(function (d) {
+	    return bounds[0] < d.datetime && d.datetime < bounds[1]
+	});
+
 	var svg = d3.select("#"+data_type)
 	    .append("svg")
 	    .attr("width", width + margin.left + margin.right)
@@ -58,7 +64,6 @@ function add_timeseries(data_type) {
     
 	svg.selectAll(".event")
 	    .data(data).enter()
-	    .filter(function (d) {}))
 	    .append("line")
 	    .attr("class", "event")
 	    .attr("x1", function (d){return x(d.datetime)})
