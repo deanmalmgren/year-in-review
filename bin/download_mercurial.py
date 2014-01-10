@@ -46,7 +46,9 @@ for host_directory in host_directories.split(','):
     # subrepos will always be listed *after* their parent repositories
     vcs_dir = '.hg'
     with settings(hide('commands'), host_string=host):
-        repo_roots = run("find %s -type d -name '%s'" % (directory, vcs_dir))
+        repo_roots = run(
+            "find %s -type d -name '%s' | sort" % (directory, vcs_dir)
+        )
 
         # Extract commit history from these mercurial root directories that
         # correspond with the specified user email
