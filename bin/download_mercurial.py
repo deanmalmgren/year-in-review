@@ -56,12 +56,6 @@ for host_directory in host_directories.split(','):
         for repo_root in repo_roots.splitlines():
             repo_root = repo_root.replace(vcs_dir, '')
 
-            # print some updates
-            host_repo = ':'.join([host, repo_root])
-            sys.stderr.write(utils.green(
-                'examining hg repo at %s\n' % host_repo
-            ))
-
             # check to see if this repo is actually a
             # subrepository. only need to check the last
             # nonsubrepo_repo_root because of how `find` recursively
@@ -73,6 +67,9 @@ for host_directory in host_directories.split(','):
 
             # only extract the timestamps for non-subrepositories
             if not is_subrepo:
+                sys.stderr.write(utils.green(
+                    'examining hg repo at %s:%s\n' % (host, repo_root)
+                ))
                 last_nonsubrepo_repo_root = repo_root
                 with cd(repo_root):
                     timestamps = run(
