@@ -70,7 +70,8 @@ function add_timeseries(data_type) {
 	// set y-axis domain
 	y.domain([0, d3.max(data, function (week_events) {
 	    return week_events.values.length;
-	})]);
+	})])
+	    .nice();
 	
 	// main svg object
 	var svg = d3.select("#"+data_type)
