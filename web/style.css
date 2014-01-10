@@ -2,20 +2,24 @@ body {
   font: 10px sans-serif;
 }
 
-.axis path,
-.axis line {
+.y.axis path,
+.y.axis line {
   fill: none;
-  stroke: none;
+  stroke: #aaa;
   shape-rendering: crispEdges;
+}
+
+.y.axis text, .x.axis text {
+  fill: #aaa;
 }
 
 .x.axis path {
   display: none;
 }
 
-.event {
-  fill: none;
-  stroke: steelblue;
+.count {
+  fill: steelblue;
+  stroke: white;
   stroke-width: 1px;
 }
 
