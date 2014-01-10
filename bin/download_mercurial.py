@@ -9,6 +9,7 @@ for parent repositories, not for subrepositories!
 import ConfigParser
 import sys
 import csv
+import datetime
 
 # third party
 from fabric.api import *
@@ -76,6 +77,9 @@ for host_directory in host_directories.split(','):
                         "hg log -u %s --template '{date|isodate}\n'" % email
                     )
                     for timestamp in timestamps.splitlines():
-                        t = ' '.join(timestamp.split()[:2])
+                        t = datetime.datetime.strptime(
+                            ' '.join(timestamp.split()[:2]),
+                            '%Y-%m-%d %H:%M',
+                        )
                         writer.writerow([t, host, repo_root])
                     sys.stdout.flush()
