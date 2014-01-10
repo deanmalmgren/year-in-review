@@ -23,3 +23,11 @@ body {
   stroke-width: 1px;
 }
 
+.month.odd {
+  stroke: none;
+  fill: #ddd;
+}
+.month.even {
+  stroke: none;
+  fill: white;
+}
