@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
     vb.gui = false
     override_config.vm.box = "precise32"
     override_config.vm.box_url = "http://files.vagrantup.com/precise32.box"
-    # override_config.vm.network :forwarded_port, guest: 8000, host: 8000
+    override_config.vm.network :forwarded_port, guest: 8000, host: 8000
     # override_config.vm.network :forwarded_port, guest: 80, host: 8080
 
     # http://stackoverflow.com/a/17126363/892506
