@@ -81,6 +81,16 @@ function add_timeseries(data_type) {
 	    .append("g")
 	    .attr("transform", "translate("+margin.left+","+margin.top+")");
 
+	// tooltip for displaying more information
+	tip = d3.tip()
+	    .attr('class', 'd3-tip')
+	    .direction('n')
+	    .offset([-10, 0])
+	    .html(function(d) {
+		return d.values.length
+	    });
+	svg.call(tip);
+
 	// add some backgrounds to highlight the months
 	svg.selectAll(".month")
 	    .data(d3.range(12)).enter()
@@ -121,6 +131,8 @@ function add_timeseries(data_type) {
 	    .attr("width", width/52)
 	    .attr("y", function (d) {return y(d.values.length)})
 	    .attr("height", function (d) {return y(0) - y(d.values.length)})
+	    .on('mouseover', tip.show)
+	    .on('mouseout', tip.hide)
 
     }
 }
