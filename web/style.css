@@ -1,0 +1,21 @@
+body {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: none;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.event {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1px;
+}
+
