@@ -6,6 +6,7 @@ http://developer.github.com/v3/activity/events/
 # standard library
 import os
 import sys
+import csv
 
 # third party
 from github import Github
@@ -26,9 +27,11 @@ api = Github(
 )
 
 # get all of the events for the authenticated user
+writer = csv.writer(sys.stdout)
+writer.writerow(['datetime', 'event'])
 user = api.get_user(config_parser.get("github", "username"))
 for event in user.get_events():
-    print event.created_at, event.type
+    writer.writerow([event.created_at, event.type])
     sys.stdout.flush()
 
 sys.stderr.write(utils.green(

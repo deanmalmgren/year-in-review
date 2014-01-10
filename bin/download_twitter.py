@@ -6,6 +6,7 @@ API using the credentials specified in year-in-review.ini.
 # standard library
 import os
 import sys
+import csv
 
 # third party
 import tweepy
@@ -45,8 +46,12 @@ api = authenticate(utils.get_config_parser())
 
 # print out the tweet timestamps and some basic statistics about those
 # tweets
+writer = csv.writer(sys.stdout)
+writer.writerow(["datetime", "retweets", "favorites"])
 for status in tweepy.Cursor(api.user_timeline).items():
-    print status.created_at, status.retweet_count, status.favorite_count
+    writer.writerow([
+        status.created_at, status.retweet_count, status.favorite_count
+    ])
 
 sys.stderr.write(utils.green(
     "twitter complete!\n"

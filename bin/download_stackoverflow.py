@@ -7,6 +7,7 @@ http://developer.github.com/v3/activity/events/
 import os
 import sys
 import datetime
+import csv
 
 # third party
 import stackexchange
@@ -34,12 +35,14 @@ timeline = user.timeline.fetch()
 #     fromdate=datetime.datetime.now(),
 #     todate=datetime.datetime.now()-datetime.timedelta(days=365),
 # )
+writer = csv.writer(sys.stdout)
+writer.writerow(['datetime', 'event'])
 for event in timeline:
     date = datetime.datetime.fromtimestamp(event.json_ob.creation_date)
     detail = event.timeline_type
     if detail is None:
         detail = event.json_ob.post_type
-    print date, detail
+    writer.writerow([date, detail])
     sys.stdout.flush()
 
 sys.stderr.write(utils.green(

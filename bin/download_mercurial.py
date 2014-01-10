@@ -8,6 +8,7 @@ for parent repositories, not for subrepositories!
 # standard library
 import ConfigParser
 import sys
+import csv
 
 # third party
 from fabric.api import *
@@ -29,6 +30,10 @@ host_directories = config_parser.get('mercurial', 'host_directories')
 # http://docs.fabfile.org/en/latest/usage/execution.html#leveraging-native-ssh-config-files
 env.use_ssh_config = True
 env.ssh_config_path = config_parser.get('mercurial', 'ssh_config_path')
+
+# instantiate the writer object
+writer = csv.writer(sys.stdout)
+writer.writerow(['datetime', 'host', 'repo'])
 
 # iterate over all comma-separated 'host:directory' pairs
 for host_directory in host_directories.split(','):
@@ -73,5 +78,5 @@ for host_directory in host_directories.split(','):
                     )
                     for timestamp in timestamps.splitlines():
                         t = ' '.join(timestamp.split()[:2])
-                        print t, host_repo
+                        writer.writerow([t, host, repo_root])
                     sys.stdout.flush()
