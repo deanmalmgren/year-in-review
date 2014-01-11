@@ -35,7 +35,9 @@ Getting started
   `make` from the `/vagrant` directory. This will run all of the
   analyses that are set up in your `year-in-review.ini` configuration file.
 
-* TODO: access crappy little web server.
+* To view the results, go into `/vagrant/web` and execute the
+  `run_server` script. Then point your browser to
+  http://localhost:8000
 
 Configuration
 -------------
