@@ -30,7 +30,9 @@ gmail: data/gmail.csv
 data/gmail.csv: bin/download_gmail.py
 	python $<
 
-gcal:
+gcal: data/gcal.csv
+data/gcal.csv: bin/download_gcal.py
+	python $< > $@
 
 github: data/github.csv
 data/github.csv: bin/download_github.py

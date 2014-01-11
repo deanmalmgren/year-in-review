@@ -60,6 +60,17 @@ access_token_secret=xxxx
 email=xxxx
 password=xxxx
 
+# after creating an application for the google API console,
+# you can get these from the google API console
+# https://code.google.com/apis/console/
+# the calendar_id is usually the same as the email address you need
+[gcal]
+application_name=xxxx
+api_key=xxxx
+client_id=xxxx
+client_secret=xxxx
+calendar_id=xxxx
+
 # credentials for authenticating to github
 [github]
 username=xxxx

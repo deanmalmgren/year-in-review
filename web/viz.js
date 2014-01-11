@@ -48,6 +48,7 @@ d3.csv("data/twitter.csv", add_timeseries("twitter"));
 d3.csv("data/github.csv", add_timeseries("github"));
 d3.csv("data/stackoverflow.csv", add_timeseries("stackoverflow"));
 d3.csv("data/mercurial.csv", add_timeseries("mercurial"));
+d3.csv("data/gcal.csv", add_timeseries("gcal"));
 
 function add_timeseries(data_type) {
 
